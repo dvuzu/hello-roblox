@@ -44,7 +44,7 @@ function waitForElementToExist(selector) {
 
         // Update the HTML content of a specific element with user data and avatar
         document.querySelector("#HomeContainer > div.section > div").innerHTML = `
-            <h1 style="display: flex; align-items: center; margin-bottom: 15px;">
+            <h1>
                 <a class="avatar avatar-card-fullbody" style="margin-right:15px;width:128px;height:128px;" href="/users/${userId}/profile">
                     <span class="avatar-card-link friend-avatar icon-placeholder-avatar-headshot" style="width:128px;height:128px;">
                         <thumbnail-2d class="avatar-card-image">

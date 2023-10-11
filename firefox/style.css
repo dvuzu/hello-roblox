@@ -1,0 +1,12 @@
+#HomeContainer > div.section > div > h1{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    height: 100% !important;
+    float: left;
+}
+
+/* FIX FOR ROPRO */
+#HomeContainer > div.section > div > div{
+    margin-top: 0 !important;
+}
