@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Hello, Roblox!",
     "description": "Return the old greeting that we all missed!",
-    "version": "0.1.1",
+    "version": "0.2.0",
     "icons": {
         "16": "images/16.png",
         "32": "images/32.png",
