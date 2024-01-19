@@ -24,6 +24,36 @@ function waitForElementToExist(selector) {
     });
 }
 
+// Check if element has a class or another element spawns on a target selector
+function waitForElement(selector, targetClass, targetSelector, callbackClass, callbackElement) {
+    const targetElement = document.querySelector(selector);
+
+    if (targetElement && targetElement.classList.contains(targetClass)) {
+        callbackClass();
+        return;
+    }
+
+    const observer = new MutationObserver(() => {
+        if (targetElement && targetElement.classList.contains(targetClass)) {
+            observer.disconnect();
+            callbackClass();
+        } else if (document.querySelector(targetSelector)) {
+            observer.disconnect();
+            callbackElement();
+        }
+    });
+
+    const config = { attributes: true, subtree: true };
+
+    observer.observe(document.body, config);
+}
+
+// Set profile picture function
+async function setProfilePicture(imageElement){
+    var avatarImage = await waitForElementToExist("#navigation .avatar img");
+    imageElement.src = avatarImage?.src || "";
+}
+
 // Greetings in different languages
 var greetings = {
     "id_id": "Halo",
@@ -100,18 +130,14 @@ var greetings = {
         // Get greeting text from the language code
         var greeting = greetings[languageCode] || "Hello";
 
-        
-        // Wait for the avatar image element to exist
-        var avatarUrl = await waitForElementToExist("#navigation .avatar img");
-
-        // Update the HTML content of a specific element with user data and avatar
+        // Insert the HTML content of a specific element with user data
         document.querySelector("#HomeContainer > div.section > div").innerHTML = `
             <h1>
                 <a class="avatar avatar-card-fullbody" style="margin-right:15px;width:128px;height:128px;" href="/users/${userId}/profile">
                     <span class="avatar-card-link friend-avatar icon-placeholder-avatar-headshot" style="width:128px;height:128px;">
                         <thumbnail-2d class="avatar-card-image">
-                            <span class="thumbnail-2d-container">
-                                <img src="${avatarUrl?.src}" style="background-color: #d4d4d4;"></img>
+                            <span id="avatar-image" class="thumbnail-2d-container">
+                                <img style="background-color: #d4d4d4"></img>
                             </span>
                         </thumbnail-2d>
                     </span>
@@ -120,6 +146,19 @@ var greetings = {
                 <a href="/users/${userId}/profile" class="user-name-container">${greeting}, ${displayName}!</a>
             </h1>
         `;
+
+        // Get avatar image
+        const avatarImage = document.getElementById("avatar-image");
+        const avatarImageImg = avatarImage.querySelector('img')
+
+        // Wait until it icon flags as blocked or it loads
+        waitForElement('#navigation .avatar .avatar-card-image', 'icon-blocked', "#navigation .avatar img", () => {
+            avatarImage.classList.add("icon-blocked");
+            avatarImageImg.style.display = 'none';
+        }, () => {
+            setProfilePicture(avatarImageImg);
+        });
+        
     } catch (error) {
         // Log the error to the console
         console.error(error);
