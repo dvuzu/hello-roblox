@@ -1,5 +1,5 @@
 {
-    "manifest_version": 3,
+    "manifest_version": 2,
     "name": "Hello, Roblox!",
     "description": "Return the old greeting that we all missed!",
     "version": "0.2.2",
@@ -21,6 +21,9 @@
                 "*://*.roblox.com/*home*"
             ]
         }
+    ],
+    "permissions": [
+        "*://*.roblox.com/*home*"
     ],
     "browser_specific_settings": {
         "gecko": {
