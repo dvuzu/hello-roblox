@@ -4,7 +4,7 @@
 
 <h1 align="center">Hello, Roblox!</h1>
 
-<p align="center">Return the old greeting that we all missed! Open Source!</p>
+<p align="center">Return the old greeting that we all missed!</p>
 <p align="center"><img src="/images/home.png" height="128"></p>
 
 <hr>
