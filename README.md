@@ -19,4 +19,4 @@
 
 
 ## Install
-You can download it for Firefox <a href="https://addons.mozilla.org/addon/hello-roblox/">here</a> or for Chromium <a href="https://chrome.google.com/webstore/detail/dpceldlkpeeefhaaholbfihfjogjabja">here</a>. You can install it manually too, source code is in the repo.
+You can download it for Firefox <a href="https://addons.mozilla.org/addon/hello-roblox/">here</a> or for Chromium based browsers <a href="https://chrome.google.com/webstore/detail/dpceldlkpeeefhaaholbfihfjogjabja">here</a>. You can install it manually too, source code is in the repo.
