@@ -50,7 +50,7 @@ function waitForElement(selector, targetClass, targetSelector, callbackClass, ca
 
 // Set profile picture function
 async function setProfilePicture(imageElement){
-    var avatarImage = await waitForElementToExist("#navigation .avatar img");
+    var avatarImage = await waitForElementToExist("#header .avatar img");
     imageElement.src = avatarImage?.src || "";
 }
 
@@ -152,7 +152,7 @@ var greetings = {
         const avatarImageImg = avatarImage.querySelector('img')
 
         // Wait until it icon flags as blocked or it loads
-        waitForElement('#navigation .avatar .avatar-card-image', 'icon-blocked', "#navigation .avatar img", () => {
+        waitForElement('#header .avatar .avatar-card-image', 'icon-blocked', "#header .avatar img", () => {
             avatarImage.classList.add("icon-blocked");
             avatarImageImg.style.display = 'none';
         }, () => {
