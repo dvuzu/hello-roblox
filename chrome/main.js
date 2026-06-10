@@ -142,7 +142,7 @@ var greetings = {
                         </thumbnail-2d>
                     </span>
                 </a>
-                ${isPremiumUser ? '<span class="icon-premium-medium" style="margin-right: 10px;"></span>' : ""}
+                ${isPremiumUser ? '<span class="icon icon-regular-roblox-plus" style="margin-right: 10px;"></span>' : ""}
                 <a href="/users/${userId}/profile" class="user-name-container">${greeting}, ${displayName}!</a>
             </h1>
         `;
